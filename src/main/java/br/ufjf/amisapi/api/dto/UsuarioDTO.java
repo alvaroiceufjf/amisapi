@@ -1,6 +1,6 @@
 package br.ufjf.amisapi.api.dto;
 
-import br.ufjf.amisapi.model.entity.Escritorio;
+import br.ufjf.amisapi.model.entity.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,13 +9,15 @@ import org.modelmapper.ModelMapper;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EscritorioDTO {
+public class UsuarioDTO {
     private Long id;
     private String nome;
-    private String cnpj;
+    private String email;
+    private String oab;
+    private Long escritorioId;
 
-    public static EscritorioDTO create(Escritorio escritorio) {
+    public static UsuarioDTO create(Usuario usuario) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(escritorio, EscritorioDTO.class);
+        return modelMapper.map(usuario, UsuarioDTO.class);
     }
 }
