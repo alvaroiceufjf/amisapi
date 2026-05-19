@@ -11,7 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Area_Processo {
+public class TipoTarefa {
 
     @Id
     // O diagrama pede String para o ID desta classe
