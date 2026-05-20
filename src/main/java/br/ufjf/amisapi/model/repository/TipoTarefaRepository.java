@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TipoTarefaRepository extends JpaRepository<TipoTarefa, String> {
-    // Note que o ID aqui é String
+
 }

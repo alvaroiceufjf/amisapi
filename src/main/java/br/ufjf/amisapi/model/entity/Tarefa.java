@@ -27,7 +27,7 @@ public class Tarefa {
     @JoinColumn(name = "tipo_tarefa_id")
     private TipoTarefa tipoTarefa;
 
-    // Relacionamento com o Advogado Responsável (Usuario)
+
     @ManyToOne
     @JoinColumn(name = "usuario_responsavel_id")
     private Usuario responsavel;
