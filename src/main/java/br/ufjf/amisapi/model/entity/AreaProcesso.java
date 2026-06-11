@@ -14,7 +14,6 @@ import javax.persistence.*;
 public class AreaProcesso {
 
     @Id
-    // O diagrama pede String para o ID desta classe
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 

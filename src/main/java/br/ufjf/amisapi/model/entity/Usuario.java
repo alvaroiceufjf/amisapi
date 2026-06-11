@@ -6,11 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
+
 public class Usuario {
 
     @Id
@@ -21,7 +22,7 @@ public class Usuario {
     private String email;
     private String oab;
 
-    // Representa a chave estrangeira Escritorio_ID do diagrama
+
     @ManyToOne
     @JoinColumn(name = "escritorio_id")
     private Escritorio escritorio;

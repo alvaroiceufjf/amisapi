@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AreaProcessoRepository extends JpaRepository<AreaProcesso, String> {
-    // Note que o ID aqui é String
+
 }
