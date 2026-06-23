@@ -21,6 +21,8 @@ public class Usuario {
     private String nome;
     private String email;
     private String oab;
+    private String senha;
+    private boolean admin;
 
 
     @ManyToOne

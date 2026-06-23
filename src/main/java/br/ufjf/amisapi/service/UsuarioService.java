@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class UsuarioService {
+public class UsuarioService implements org.springframework.security.core.userdetails.UserDetailsService {
 
     private UsuarioRepository repository;
 
@@ -49,5 +49,24 @@ public class UsuarioService {
         if (usuario.getEscritorio() == null || usuario.getEscritorio().getId() == null) {
             throw new RegraNegocioException("O usuário deve estar vinculado a um escritório");
         }
+    }
+
+    public Optional<Usuario> getUsuarioByEmail(String email) {
+        return repository.findByEmail(email);
+    }
+
+    @Override
+    public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String email) throws org.springframework.security.core.userdetails.UsernameNotFoundException {
+        Usuario usuario = repository.findByEmail(email)
+                .orElseThrow(() -> new org.springframework.security.core.userdetails.UsernameNotFoundException("Usuário não encontrado"));
+
+        String[] roles = usuario.isAdmin() ? new String[]{"ADMIN", "USER"} : new String[]{"USER"};
+
+        return org.springframework.security.core.userdetails.User
+                .builder()
+                .username(usuario.getEmail())
+                .password(usuario.getSenha())
+                .roles(roles)
+                .build();
     }
 }
