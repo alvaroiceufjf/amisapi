@@ -15,6 +15,8 @@ public class UsuarioDTO {
     private String email;
     private String oab;
     private Long escritorioId;
+    private String senha;
+    private boolean admin;
 
     public static UsuarioDTO create(Usuario usuario) {
         ModelMapper modelMapper = new ModelMapper();

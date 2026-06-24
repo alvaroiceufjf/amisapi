@@ -48,11 +48,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors().disable()
                 .csrf().disable()
                 .authorizeRequests()
-                // Rotas de Usuários (Advogados) e Escritórios abertas para criação
+
                 .antMatchers("/api/v1/usuarios/**").permitAll()
                 .antMatchers("/api/v1/escritorios/**").permitAll()
 
-                // Rotas de uso diário do sistema (deixadas abertas para facilitar testes agora)
+
                 .antMatchers("/api/v1/clientes/**").permitAll()
                 .antMatchers("/api/v1/areas-processo/**").permitAll()
                 .antMatchers("/api/v1/tipos-tarefa/**").permitAll()
